@@ -1,0 +1,24 @@
+{
+  "name": "bnza/job-runner",
+  "license": "GPL-3",
+  "type": "library",
+  "description": "Doctrine simple job runner",
+  "keywords": ["job", "task", "runner"],
+  "require-dev": {
+    "phpunit/phpunit":               "^7.4",
+    "friendsofphp/php-cs-fixer": "^2.13"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bnza\\JobRunner\\": "lib/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Bnza\\JobRunner\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "symfony/filesystem": "^4.1"
+  }
+}
