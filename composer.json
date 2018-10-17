@@ -1,7 +1,7 @@
 {
   "name": "bnza/job-runner",
   "license": "GPL-3",
-  "type": "library",
+  "type": "symfony-bundle",
   "description": "Doctrine simple job runner",
   "keywords": ["job", "task", "runner"],
   "require-dev": {

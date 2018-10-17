@@ -42,8 +42,26 @@ class JobManagerTest extends \PHPUnit\Framework\TestCase
 
     public function testGetBaseWorkDir()
     {
-        $workDir = $this->jobManager->getBaseWorkDir();
-        $this->assertFileExists($workDir);
+        $dir = $this->jobManager->getBaseWorkDir();
+        $this->assertFileExists($dir);
+    }
+
+    public function testGetBaseWorkDirNotCreating()
+    {
+        $dir = $this->jobManager->getBaseWorkDir(false);
+        $this->assertFalse(file_exists($dir));
+    }
+
+    public function testGetJobsWorkDir()
+    {
+        $dir = $this->jobManager->getJobsWorkDir();
+        $this->assertFileExists($dir);
+    }
+
+    public function testGetJobsWorkDirNotCreating()
+    {
+        $dir = $this->jobManager->getJobsWorkDir(false);
+        $this->assertFalse(file_exists($dir));
     }
 
     public function tearDown()

@@ -9,17 +9,22 @@
 namespace Bnza\JobRunner;
 
 /**
- * Class JobManager
- * @package Bnza\JobRunner
+ * Class JobManager.
  */
 class JobManager
 {
-    const DIR_NAME = 'bnza_jr';
+    const BASE_DIR_NAME = 'bnza_jr';
+    const JOBS_DIR_NAME = 'jobs';
 
     /**
      * @var string
      */
     private $baseWorkDir = '';
+
+    /**
+     * @var string
+     */
+    private $jobsWorkDir = '';
 
     /**
      * Creates the given directory.
@@ -28,15 +33,18 @@ class JobManager
      * @param int    $mode
      * @param bool   $recursive
      */
-    private function createDirectory(string $dir, int $mode = 0660, bool $recursive = false)
+    private function createDirectory(string $dir, int $mode = 0770, bool $recursive = false)
     {
-        if (!@mkdir($dir, $mode, $recursive)) {
-            throw new \RuntimeException("Unable to create $dir directory");
+        if (!file_exists($dir)) {
+            if (!@mkdir($dir, $mode, $recursive)) {
+                throw new \RuntimeException("Unable to create $dir directory");
+            }
         }
     }
 
     /**
-     * Gets the base Jobs Work Directory. If the create flag is set true (as default) creates it if it not exists.
+     * Gets the base Jobs Work Directory.
+     * If the create flag is set true (as default) and the folder does not exist creates it.
      *
      * @param bool $create
      *
@@ -45,13 +53,34 @@ class JobManager
     public function getBaseWorkDir(bool $create = true): string
     {
         if (!$this->baseWorkDir) {
-            $this->baseWorkDir = sys_get_temp_dir().DIRECTORY_SEPARATOR.self::DIR_NAME;
+            $this->baseWorkDir = sys_get_temp_dir().DIRECTORY_SEPARATOR.self::BASE_DIR_NAME;
         }
 
-        if ($create && !file_exists($this->baseWorkDir)) {
+        if ($create) {
             $this->createDirectory($this->baseWorkDir);
         }
 
         return $this->baseWorkDir;
+    }
+
+    /**
+     * Gets the base Jobs Directory (where running jobs data are stored).
+     * If the create flag is set true (as default) and the folder does not exist creates it.
+     *
+     * @param bool $create
+     *
+     * @return string
+     */
+    public function getJobsWorkDir(bool $create = true)
+    {
+        if (!$this->jobsWorkDir) {
+            $this->jobsWorkDir = $this->getBaseWorkDir($create).DIRECTORY_SEPARATOR.self::JOBS_DIR_NAME;
+        }
+
+        if ($create) {
+            $this->createDirectory($this->jobsWorkDir);
+        }
+
+        return $this->jobsWorkDir;
     }
 }
