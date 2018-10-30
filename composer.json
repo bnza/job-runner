@@ -10,15 +10,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Bnza\\JobRunnerBundle\\": ""
-    },
-    "exclude-from-classmap": [
-      "/Tests/"
-    ]
+      "Bnza\\JobRunnerBundle\\": "src/"
+    }
   },
   "autoload-dev": {
     "psr-4": {
-      "Bnza\\JobRunnerBundle\\Tests\\": "/Tests/"
+      "Bnza\\JobRunnerBundle\\Tests\\": "tests/"
     }
   },
   "require": {

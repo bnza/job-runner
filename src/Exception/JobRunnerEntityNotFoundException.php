@@ -6,10 +6,8 @@
  * file that was distributed with this source code.
  */
 
-namespace Bnza\JobRunnerBundle;
+namespace Bnza\JobRunnerBundle\Exception;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
-class BnzaJobRunnerBundle extends Bundle
+class JobRunnerEntityNotFoundException extends JobRunnerException
 {
 }

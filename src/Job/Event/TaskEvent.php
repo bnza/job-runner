@@ -6,10 +6,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Bnza\JobRunnerBundle;
+namespace Bnza\JobRunnerBundle\Job\Event;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\EventDispatcher\Event;
 
-class BnzaJobRunnerBundle extends Bundle
+class TaskEvent extends Event
 {
+    public const CREATED = 'bnza.job_runner.task.created';
 }
