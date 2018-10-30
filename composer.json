@@ -10,15 +10,25 @@
   },
   "autoload": {
     "psr-4": {
-      "Bnza\\JobRunner\\": "lib/"
-    }
+      "Bnza\\JobRunnerBundle\\": ""
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
-      "Bnza\\JobRunner\\Tests\\": "tests/"
+      "Bnza\\JobRunnerBundle\\Tests\\": "/Tests/"
     }
   },
   "require": {
-    "symfony/filesystem": "^4.1"
+    "symfony/filesystem": "^4.1",
+    "symfony/event-dispatcher": "^4.1",
+    "symfony/dotenv": "^4.1",
+    "symfony/dependency-injection": "^4.1",
+    "symfony/config": "^4.1",
+    "symfony/yaml": "^4.1",
+    "symfony/framework-bundle": "^4.1",
+    "doctrine/inflector": "^1.3"
   }
 }
