@@ -1,6 +1,6 @@
 {
   "name": "bnza/job-runner",
-  "license": "GPL-3",
+  "license": "GPL-3.0-or-later",
   "type": "symfony-bundle",
   "description": "Doctrine simple job runner",
   "keywords": ["job", "task", "runner"],
@@ -26,7 +26,6 @@
     "symfony/config": "^4.1",
     "symfony/yaml": "^4.1",
     "symfony/framework-bundle": "^4.1",
-    "doctrine/inflector": "^1.3",
-    "symfony/phpunit-bridge": "^4.1"
+    "doctrine/inflector": "^1.3"
   }
 }
