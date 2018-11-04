@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/bnza/job-runner.svg?branch=master)](https://travis-ci.org/bnza/job-runner)
 
-#JobRunner
+# JobRunner
 JobRunner is a Symfony bundle intended for manage, execute, display and log jobs. 
 
 
@@ -19,7 +19,7 @@ Repository currently marked as dev. Set up your ```composer.json``` consequently
 ],
 ```
 
-##Usage
+## Usage
 
 Job can be created extending ```\Bnza\Job\AbstractJob``` and particularly 
 implementing ```setName``` and ```getTasks``` method.
